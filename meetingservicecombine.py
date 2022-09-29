@@ -46,11 +46,11 @@ sg.popup('檔案格式轉換完成')
 #連續的Azure語音轉文字
 def continuous_recognition(path):
     audio_config = speechsdk.audio.AudioConfig(filename=path)
-    speech_config = speechsdk.SpeechConfig(subscription="5cc53c68cd8f4b37b8870a2e2046cd87", region="westus2")
+    speech_config = speechsdk.SpeechConfig(subscription="azure金鑰", region="westus2")
     speech_config.speech_recognition_language="zh-tw"
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
     #phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(speech_recognizer)
-    #phrase_list_grammar.addPhrase(["人壽","銀行"])
+    #phrase_list_grammar.addPhrase(["自定義字詞"])
     done = False
     def stop_cb(evt):
         print('CLOSING on {}'.format(evt))
@@ -97,7 +97,7 @@ for substring in substrings[:-1]:
 p2.add_run(substrings[-1])
 
 #Word檔案儲存
-doc.save(values[1][0]+'會議逐字稿整理完成_final.docx')
+doc.save(values[1][0]+'檔案名稱.docx')
 
 
 
