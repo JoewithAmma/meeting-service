@@ -11,4 +11,4 @@
 
 # 另附上
 dockerfile(可打包api成docker image)\
-yml檔(以docker compose啟動兩個container)\
+yml檔(以docker compose啟動兩個container)
