@@ -1,0 +1,33 @@
+version: '3.3'
+services:
+  speechtotext:
+    container_name: azure-cognitive-service-speech-to-text
+    image: mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:3.7.0-amd64-zh-tw
+    environment:
+      eula: accept
+      key: 99a5cac43deb4581a45874768ce6ea15
+      apiKey: 99a5cac43deb4581a45874768ce6ea15 # new
+      billing: https://azhetestserivce01.cognitiveservices.azure.com/
+      memory: 4g
+      cpus: 4
+      Logging: Console
+      LogLevel: Default=Information
+    ports:
+      - "5000:5000"
+    networks:
+      - "newnet"
+  server:
+    image: sttserver # new
+    restart: always # new
+    container_name: sttserverapi
+    ports:
+      - "9004:9004"
+    depends_on:
+      - speechtotext
+    links:
+      - speechtotext
+    networks:
+      - "newnet"
+networks:
+  newnet:
+    driver: bridge
