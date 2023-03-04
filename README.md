@@ -7,7 +7,7 @@
 2.azure語音辨識核心\
 以azure python SDK方式進行串接\
 3.使用者GUI介面\
-使用pysimplegui套件撰寫，後續可使用pyinstaller打包成exe\
+使用pysimplegui套件撰寫，後續可使用pyinstaller打包成exe
 
 # 另附上
 dockerfile(可打包api成docker image)\
